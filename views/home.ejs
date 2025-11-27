@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home Page</title>
+
+    <!-- ✅ COMMON CSS -->
     <link rel="stylesheet" href="/style.css" />
   </head>
 
@@ -15,8 +17,8 @@
       <% if (locals.id) { %>
         <p class="success-msg">
           ✅ Short URL Generated:
-          <a href="http://localhost:4000/url/<%= id %>" target="_blank">
-            http://localhost:4000/url/<%= id %>
+          <a href="/url/<%= id %>" target="_blank">
+            /url/<%= id %>
           </a>
         </p>
       <% } %>
@@ -35,7 +37,7 @@
         </form>
       </div>
 
-      <!-- ✅ TABLE -->
+      <!-- ✅ TABLE WITH SHORT LINKS -->
       <div class="table-box">
         <% if (urls && urls.length > 0) { %>
           <table>
@@ -54,11 +56,14 @@
                   <td><%= index + 1 %></td>
                   <td><%= url.shortId %></td>
                   <td><%= url.redirectUrl %></td>
+
+                  <!-- ✅ RELATIVE SHORT LINK -->
                   <td>
-                    <a href="http://localhost:4000/url/<%= url.shortId %>" target="_blank">
-                      http://localhost:4000/url/<%= url.shortId %>
+                    <a href="/url/<%= url.shortId %>" target="_blank">
+                      /url/<%= url.shortId %>
                     </a>
                   </td>
+
                   <td><%= url.visitHistory.length %></td>
                 </tr>
               <% }) %>
